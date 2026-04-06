@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Trump Administration Waste Tracker | Center for American Progress</title>
+<meta name="description" content="A running tracker of documented taxpayer waste, corrupt contracting, vanity spending, and self-enrichment by the Trump administration — with opportunity cost breakdowns."/>
+<style>
+:root{--bg1:#ffffff;--bg2:#f5f5f0;--bg3:#eeede8;--bgi:#e6f1fb;--bgd:#fcebeb;--bgw:#faeeda;--bgs:#eaf3de;--t1:#1a1a18;--t2:#5f5e5a;--t3:#888780;--ti:#185fa5;--td:#a32d2d;--tw:#854f0b;--ts:#3b6d11;--b3:rgba(26,26,24,.15);--b2:rgba(26,26,24,.3);--b1:rgba(26,26,24,.4);--fs:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;--rm:8px;--rl:12px}
+@media(prefers-color-scheme:dark){:root{--bg1:#1a1a18;--bg2:#2c2c2a;--bg3:#222220;--bgi:#042c53;--bgd:#501313;--bgw:#412402;--bgs:#173404;--t1:#f0efe8;--t2:#b4b2a9;--t3:#888780;--ti:#85b7eb;--td:#f09595;--tw:#fac775;--ts:#97c459;--b3:rgba(240,239,232,.15);--b2:rgba(240,239,232,.3);--b1:rgba(240,239,232,.4)}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fs);background:var(--bg3);color:var(--t1)}
+.hdr{background:var(--bg1);border-bottom:.5px solid var(--b3);padding:.9rem 1.5rem;display:flex;align-items:center;gap:10px}
+.hdr-org{font-size:11px;font-weight:500;color:var(--t2);text-transform:uppercase;letter-spacing:.06em}
+.hdr-div{color:var(--b2)}
+.hdr-title{font-size:13px;font-weight:500;color:var(--t1)}
+.wrap{max-width:920px;margin:0 auto;padding:1.5rem}
+.hed{margin-bottom:1.5rem}
+.hed h1{font-size:22px;font-weight:500;margin-bottom:6px}
+.hed p{font-size:14px;color:var(--t2);line-height:1.6;max-width:680px}
+.hero{background:var(--bg2);border-radius:var(--rl);padding:1.25rem 1.5rem;margin-bottom:1rem}
+.hero-lbl{font-size:11px;color:var(--t2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.hero-num{font-size:40px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.1}
+.hero-sub{font-size:12px;color:var(--t3);margin-top:5px}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:8px;margin-bottom:1.25rem}
+.sc{background:var(--bg2);border-radius:var(--rm);padding:.7rem .9rem;cursor:pointer;border:.5px solid transparent}
+.sc:hover{border-color:var(--b2)}.sc.af{border-color:var(--b1)}
+.sc-lbl{font-size:11px;color:var(--t2);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.sc-num{font-size:16px;font-weight:500;font-variant-numeric:tabular-nums}
+.sc-cnt{font-size:11px;color:var(--t3);margin-top:1px}
+.fr{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;align-items:center}
+.fl2{font-size:12px;color:var(--t3);margin-right:2px}
+.cb{font-size:12px;padding:4px 11px;border-radius:20px;border:.5px solid var(--b2);background:var(--bg1);color:var(--t2);cursor:pointer}
+.cb.active{background:var(--bg2);color:var(--t1);font-weight:500}
+.el{border:.5px solid var(--b3);border-radius:var(--rl);overflow:hidden;margin-bottom:1.5rem;background:var(--bg1)}
+.eh{display:grid;grid-template-columns:1fr 125px 36px;gap:8px;padding:7px 14px;background:var(--bg2);font-size:11px;color:var(--t2);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.er{display:grid;grid-template-columns:1fr 125px 36px;gap:8px;padding:10px 14px;border-top:.5px solid var(--b3);align-items:start;cursor:pointer}
+.er:hover,.er.open{background:var(--bg2)}
+.en{font-size:13px;font-weight:500;line-height:1.4}
+.es{font-size:11px;color:var(--t3);margin-top:2px}
+.ea{font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.eg{font-size:11px;color:var(--t3);text-align:right;margin-top:2px}
+.pill{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;margin-right:3px;white-space:nowrap;vertical-align:middle}
+.pw{background:var(--bgd);color:var(--td)}.pc{background:var(--bgw);color:var(--tw)}.pv{background:#EEEDFE;color:#534AB7}.pb{background:var(--bgs);color:var(--ts)}.ps{background:var(--bgi);color:var(--ti)}
+.exp{padding:10px 14px 14px;border-top:.5px solid var(--b3);display:none;background:var(--bg2)}
+.exp.open{display:block}
+.sl{font-size:11px;color:var(--t3);margin-bottom:8px}.sl a{color:var(--ti)}
+.nt{font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:8px}
+.og{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:7px;margin-top:7px}
+.oc{background:var(--bg1);border:.5px solid var(--b3);border-radius:var(--rm);padding:.55rem .8rem}
+.on{font-size:15px;font-weight:500;font-variant-numeric:tabular-nums}.od{font-size:11px;color:var(--t2);margin-top:1px;line-height:1.35}
+.af2{border:.5px solid var(--b3);border-radius:var(--rl);padding:1rem 1.25rem;margin-bottom:1.5rem;background:var(--bg1)}
+.af2 h3{font-size:13px;font-weight:500;margin-bottom:10px;color:var(--t2)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:7px;align-items:flex-end}
+.fd{display:flex;flex-direction:column;flex:1;min-width:120px}
+.fl{font-size:11px;color:var(--t2);margin-bottom:3px}
+.fd input,.fd select{font-size:13px;height:32px;border:.5px solid var(--b2);border-radius:var(--rm);padding:0 9px;background:var(--bg1);color:var(--t1);outline:none}
+.fd input:focus,.fd select:focus{border-color:var(--b1)}
+.ab{height:32px;padding:0 14px;border:.5px solid var(--b2);border-radius:var(--rm);background:var(--bg1);color:var(--t1);font-size:13px;cursor:pointer;white-space:nowrap}
+.ab:hover{background:var(--bg2)}
+.ph{font-size:11px;color:var(--t3);margin-top:3px}
+.db{font-size:10px;border:.5px solid var(--b3);border-radius:4px;padding:2px 5px;cursor:pointer;background:none;color:var(--t3)}
+.db:hover{background:var(--bgd);color:var(--td)}
+.to{margin-top:1.5rem;margin-bottom:2rem}
+.tl{font-size:11px;color:var(--t2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;font-weight:500}
+.disc{font-size:11px;color:var(--t3);line-height:1.7;border-top:.5px solid var(--b3);padding-top:1.25rem;margin-top:1rem}
+.disc strong{color:var(--t2)}
+.ftr{background:var(--bg1);border-top:.5px solid var(--b3);padding:1rem 1.5rem;font-size:11px;color:var(--t3);text-align:center;margin-top:1.5rem}
+.nb{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;background:var(--bgd);color:var(--td);margin-left:5px;font-weight:500;vertical-align:middle}
+@media(max-width:600px){.eh,.er{grid-template-columns:1fr 85px 28px}.hero-num{font-size:28px}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <span class="hdr-org">Center for American Progress</span>
+  <span class="hdr-div">/</span>
+  <span class="hdr-title">Trump Administration Waste Tracker</span>
+</header>
+<div class="wrap">
+  <div class="hed">
+    <h1>Trump administration waste tracker</h1>
+    <p>A running tally of documented taxpayer waste, corrupt contracting, vanity spending, and self-enrichment by the Trump administration — with opportunity cost breakdowns showing what the money could have funded instead. Click any item to expand sourcing and detail. Last updated April 2026.</p>
+  </div>
+  <div class="hero">
+    <div class="hero-lbl">Total documented taxpayer waste — Trump admin (Jan 2025–present)</div>
+    <div class="hero-num" id="grand-total">$0</div>
+    <div class="hero-sub" id="grand-sub">Loading…</div>
+  </div>
+  <div class="sg" id="sg"></div>
+  <div class="fr">
+    <span class="fl2">Filter:</span>
+    <button class="cb active" onclick="setFilter('all',this)">All items</button>
+    <button class="cb" onclick="setFilter('war',this)">Wars of choice</button>
+    <button class="cb" onclick="setFilter('corrupt',this)">Corrupt contracting</button>
+    <button class="cb" onclick="setFilter('vanity',this)">Vanity spending</button>
+    <button class="cb" onclick="setFilter('boom',this)">Boondoggles</button>
+    <button class="cb" onclick="setFilter('self',this)">Self-enrichment</button>
+  </div>
+  <div class="el">
+    <div class="eh"><span>Item</span><span style="text-align:right">Amount</span><span></span></div>
+    <div id="eb"></div>
+  </div>
+  <div class="af2">
+    <h3>Add an item</h3>
+    <div class="row">
+      <div class="fd" style="flex:2;min-width:180px"><label class="fl">Description</label><input type="text" id="in" placeholder="e.g. Hegseth office renovation"/></div>
+      <div class="fd" style="min-width:110px"><label class="fl">Amount</label><input type="text" id="ia" placeholder="e.g. 450M"/></div>
+      <div class="fd" style="min-width:140px"><label class="fl">Category</label>
+        <select id="ic">
+          <option value="war">War of choice</option>
+          <option value="corrupt">Corrupt contracting</option>
+          <option value="vanity">Vanity spending</option>
+          <option value="boom">Boondoggle</option>
+          <option value="self">Self-enrichment</option>
+        </select>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom:0">
+      <div class="fd" style="flex:2;min-width:170px"><label class="fl">Source</label><input type="text" id="is" placeholder="e.g. CBO, Jan 2026"/></div>
+      <div class="fd" style="flex:2;min-width:170px"><label class="fl">URL (optional)</label><input type="text" id="iu" placeholder="https://…"/></div>
+      <button class="ab" onclick="addEntry()">+ Add item</button>
+    </div>
+    <div class="ph" id="ph"></div>
+  </div>
+  <div class="to">
+    <div class="tl">What the combined total could fund instead</div>
+    <div class="og" id="to"></div>
+  </div>
+  <div class="disc">
+    <strong>Methodology:</strong> Dollar figures use midpoint estimates where ranges exist. Projected figures (IRS revenue loss, DOGE cost-of-cuts) are estimates from nonpartisan sources and are clearly distinguished from realized expenditures. Sources include congressional testimony, GAO reports, and nonpartisan institutions including CSIS, Brown University Costs of War, Yale Budget Lab, the Congressional Budget Office, Penn Wharton Budget Model, and Partnership for Public Service. All items represent direct federal outlays, documented opportunity costs, or realized losses attributable to administration decisions. Opportunity cost translations use federal average figures and are illustrative. Items are updated as new sourced figures become available.
+  </div>
+</div>
+<footer class="ftr">Center for American Progress &mdash; americanprogress.org &mdash; Updated April 2026</footer>
+<script>
+const OPP=[{n:"children covered by Medicaid for 1 year",u:6500},{n:"SNAP food-assistance recipients (1 yr)",u:2340},{n:"public school teachers (annual salary)",u:25000},{n:"affordable housing units built",u:250000},{n:"Pell Grants for low-income students",u:7395},{n:"veterans' housing vouchers (1 yr)",u:10000},{n:"community health center patients served",u:1100},{n:"NIH research grants funded",u:500000}];
+const CM={war:{l:"War of choice",c:"pw"},corrupt:{l:"Corrupt contracting",c:"pc"},vanity:{l:"Vanity spending",c:"pv"},boom:{l:"Boondoggle",c:"pb"},self:{l:"Self-enrichment",c:"ps"}};
+const DATA=[
+{id:1,cat:"war",name:"Operation Epic Fury — Iran war (ongoing)",amt:25e9,lo:20e9,hi:null,src:"CSIS / CAP analysis, Mar 2026",url:"https://www.americanprogress.org/article/by-the-end-of-the-week-the-trump-administrations-war-in-iran-will-likely-have-cost-25-billion/",note:"CSIS put costs at $16.5B by day 12; CAP projects $25B+ by week 4. Penn Wharton Budget Model estimates total economic cost up to $210B. Pentagon sought ~$50B supplemental. Launched without a congressional AUMF, without articulated objectives, and without an exit plan. 13 U.S. service members killed."},
+{id:2,cat:"war",name:"Operation Rough Rider — Yemen/Houthi campaign",amt:1000e6,lo:1000e6,hi:null,src:"NBC News / CNN, May 2025",url:"https://www.nbcnews.com/politics/national-security/trump-operation-houthis-cost-1-billion-rcna205333",note:"2,000 bombs and missiles fired over 2 months including 75+ Tomahawks and 7 MQ-9 Reaper drones shot down ($30M each). Total cost exceeded $1B. End result: a ceasefire that did not stop Houthi attacks on Israel or commercial shipping. Former Pentagon official: 'The Houthis will stop shooting at U.S. ships for some period of time. But they will not stop firing missiles at Israel, commercial shipping will not return, and nothing will change in the Yemen civil war.'"},
+{id:3,cat:"war",name:"Operation Midnight Hammer — Iran nuclear strike (June 2025)",amt:2150e6,lo:2040e6,hi:2260e6,src:"Brown University Costs of War, 2025",url:"https://responsiblestatecraft.org/iran-war-costs/",note:"Joint U.S.-Israeli strike on Iran nuclear facilities lasting ~2.5 hours. Brown University estimated $2.04–2.26B. Included 40 MOP bunker-buster bombs, 7 B-2 stealth bombers, and 24 Tomahawk missiles."},
+{id:4,cat:"war",name:"Operation Southern Spear — Venezuela/Maduro capture",amt:2500e6,lo:2e9,hi:3e9,src:"The Fulcrum / multiple analysts, 2025",url:"https://thefulcrum.us/governance-legislation/iran-war-cost-billions-lost-domestic-needs",note:"Military operation to capture Venezuelan President Nicolás Maduro. Estimated $2–3B in direct costs. Pentagon has not released official figures."},
+{id:19,cat:"war",name:"Domestic troop deployments to U.S. cities",amt:496e6,lo:496e6,hi:null,isNew:true,src:"Congressional Budget Office (nonpartisan), Jan 2026",url:"https://www.cbsnews.com/news/troop-deployments-to-u-s-cities-cost-nearly-half-a-billion-dollars-in-2025/",note:"CBO confirmed $496M through end of December 2025 for deployments to six cities: Washington D.C. ($232M), Los Angeles ($193M), Memphis, Portland, Chicago, and New Orleans. Key waste angle: legal challenges blocked missions in Portland and Chicago — but costs kept accruing because mobilized personnel away from home stations incur essentially the same costs whether deployed or waiting. Continuing deployments cost ~$93M per month."},
+{id:5,cat:"corrupt",name:"Noem DHS self-deportation ads — no-bid contract",amt:220e6,lo:200e6,hi:220e6,src:"ProPublica / Senators Welch & Blumenthal, Nov 2025–Mar 2026",url:"https://www.propublica.org/article/kristi-noem-dhs-ad-campaign-strategy-group",note:"$143M to Safe America Media — incorporated 7 days before award, zero prior federal work, no competitive bidding. Subcontracted to firm whose CEO is married to Noem's spokesperson. Production costs: $20K horse rental, $60K signing bonus, $4K hair & makeup. Filmed on Day 2 of a government shutdown. Additional $77M to connected GOP ad buyers."},
+{id:6,cat:"corrupt",name:"ICE recruitment ads — no-bid contract to same firms",amt:100e6,lo:null,hi:null,src:"NBC News / Daily Beast, 2025",url:"https://www.thedailybeast.com/department-of-homeland-security-dhs-scrambling-to-fix-big-mistake-of-ice-barbie-kristi-noem-deputy-28/",note:"$100M recruitment advertising contract, no competitive bidding, awarded to the same Safe America Media and People Who Think firms. A DHS employee who proposed a cheaper rival was verbally berated until he backed down. Investigation ongoing into Corey Lewandowski kickbacks."},
+{id:7,cat:"vanity",name:"Noem DHS luxury jets",amt:172e6,lo:172e6,hi:null,src:"Rep. Jamie Raskin / House Judiciary hearing, Mar 2026",url:"https://www.yahoo.com/news/articles/kristi-noems-220m-homeland-security-204506291.html",note:"$172M for two luxury jets for Noem's personal travel. A third leased jet — a $70M 737 Max with a queen-sized bedroom — also procured. Noem simultaneously lived rent-free in the official residence of the Coast Guard Commandant."},
+{id:8,cat:"vanity",name:"Military parade — June 14, 2025 (Trump's birthday)",amt:30e6,lo:25e6,hi:45e6,src:"U.S. Army confirmed / NBC News, Jul 2025",url:"https://fortune.com/2025/05/16/trump-military-parade-cost-45-million/",note:"Army-confirmed final cost: $30M. Parade expanded at Trump's personal request. Included $16M for D.C. road repairs from 70-ton Abrams tanks. 60% of Americans polled said not a good use of funds. Occurred same day as 'No Kings' protests drawing 4–5 million people nationwide."},
+{id:9,cat:"vanity",name:"Qatar 'gift' plane — taxpayer-funded Air Force retrofit",amt:400e6,lo:400e6,hi:1000e6,src:"Air Force Sec. Meink / House Armed Services Committee, Jun 2025",url:"https://www.cnn.com/2025/06/05/politics/qatari-plane-air-force-one-cost",note:"Trump called the Qatari Boeing 747 'FREE.' Taxpayer-funded retrofit estimated 'less than $400M' by Air Force Secretary (classified); lawmakers put it at $1B+. WaPo reported the plane was 'very poorly maintained' and may require $1.5B. Retrofit funds pulled from the nuclear Sentinel ICBM program. Post-presidency plan: transfer to Trump's personal presidential library foundation."},
+{id:10,cat:"boom",name:"Golden Dome — $25B down payment (total est. $185B–$542B)",amt:25e9,lo:25e9,hi:542e9,src:"CBO / Pentagon Gen. Guetlein, May 2025–Mar 2026",url:"https://thehill.com/policy/defense/5789969-golden-dome-missile-defense-cost/",note:"$25B appropriated before any detailed architecture plan was shown to Congress. Pentagon updated estimate (Mar 2026): $185B. CBO range: $161B–$542B over 20 years. AEI analysis: up to $3.6T. Program may also trigger a nuclear arms race with China and Russia."},
+{id:11,cat:"boom",name:"Pentagon September 2025 'use-it-or-lose-it' binge",amt:93400e6,lo:null,hi:null,src:"Open the Books / USASpending.gov, Mar 2026",url:"https://newrepublic.com/post/207555/pete-hegseth-billions-dollars-fruit-basket-stands-chairs-crab",note:"DOD spent $93.4B in September 2025 alone — highest single month since 2008 — to burn through budget before fiscal year end. Highlights: $7M lobster tails, $2M Alaskan king crab, $15.1M ribeye steak, $98,329 Steinway grand piano for Air Force chief of staff's home, $3.5B cable TV/tech support. Open the Books warned Hegseth in August. He did not act."},
+{id:12,cat:"boom",name:"ICE branded vehicles — unused, sitting in storage",amt:25e6,lo:null,hi:null,src:"Washington Examiner / Daily Beast, Mar 2026",url:"https://www.washingtonexaminer.com/policy/immigration/4478925/deputy-director-ice-bought-thousands-marked-vehicles-cannot-use/",note:"2,500 ICE-branded trucks/SUVs ordered by a 28-year-old deputy director with no law enforcement experience. Agents refuse to drive them. Now hidden in parking garages nationwide. $2.25M no-bid contract to GOP donor/NASCAR owner Rick Hendrick. DHS now paying to unwrap remaining deliveries."},
+{id:13,cat:"boom",name:"Pentagon funds diverted to immigration enforcement",amt:2e9,lo:null,hi:null,src:"The Intercept / Sen. Elizabeth Warren, Dec 2025",url:"https://theintercept.com/2025/12/11/pentagon-dhs-immigrants-draining-defense/",note:"~$2B in defense funds redirected from military readiness to border and immigration operations. ~8,500 troops pulled from combat-ready roles. 2026 Pentagon budget plans $5B+ for border operations, raising serious military readiness concerns."},
+{id:14,cat:"boom",name:"IRS cuts — projected lost tax revenue (2025)",amt:500e9,lo:323e9,hi:500e9,src:"Washington Post / Yale Budget Lab / Treasury Dept., Mar–May 2025",url:"https://www.cbsnews.com/news/irs-doge-cuts-layoffs-31-percent-auditors-tax-revenue-impact/",note:"DOGE fired 11,000+ IRS employees including 31% of all auditors. Treasury projected $500B revenue loss in 2025 (10% of collections). Yale Budget Lab: $323B lost over 10 years. Note: projection, not yet fully realized. DOGE claimed ~$160B in total savings — this revenue loss alone may be 3x that figure."},
+{id:15,cat:"boom",name:"DOGE cost of botched firings and rehirings",amt:135e9,lo:null,hi:null,src:"Partnership for Public Service (nonpartisan), Apr 2025",url:"https://www.cbsnews.com/news/doge-cuts-cost-135-billion-analysis-elon-musk-department-of-government-efficiency/",note:"Partnership for Public Service estimated DOGE's actions cost $135B in FY2025 from paid leave, rehiring 24,000 mistakenly fired workers after court orders, and lost productivity. That is $0.84 spent for every $1 DOGE claimed to save. Does not include hundreds of lawsuits or IRS revenue losses."},
+{id:16,cat:"boom",name:"IEEPA tariffs — illegally collected, must be refunded",amt:130e9,lo:null,hi:null,src:"J.P. Morgan / U.S. Supreme Court ruling, Feb 2026",url:"https://www.jpmorgan.com/insights/global-research/current-events/us-tariffs",note:"Supreme Court ruled Feb 2026 that Trump's IEEPA tariffs were unconstitutional. ~$130B collected from U.S. businesses in 2025 must now be refunded. DOJ is fighting to require each importer to sue individually — adding massive legal costs on top of the refund obligation."},
+{id:17,cat:"self",name:"Trump golf trips — 2025 (second term)",amt:75e6,lo:71e6,hi:null,src:"HuffPost analysis / GAO cost data, Nov 2025",url:"https://www.yahoo.com/news/articles/trump-golf-trips-cost-taxpayers-220610919.html",note:"16 trips to Mar-a-Lago at ~$3.4M each (GAO-based, 2017 dollars — real cost higher). 9 Bedminster trips ~$1.1M each. 1 Scotland trip ~$10M. On pace for $300M over full second term. Air Force One costs ~$273K/hr. Costs flow back to Trump's own businesses. Trump in 2016 promised he would never golf if elected."},
+{id:18,cat:"self",name:"Secret Service payments to Trump's own properties",amt:2e6,lo:null,hi:null,src:"CREW FOIA investigation, 2025",url:"https://www.citizensforethics.org/reports-investigations/crew-investigations/secret-service-has-spent-nearly-100k-at-trump-properties/",note:"Secret Service paid into Trump's own businesses while protecting him — rooms billed at up to $1,185/night (nearly 5x the government per-diem rate). House Oversight documented at least 40 waivers. In one instance, Trump's hotel charged the Secret Service more per room than it charged Qatar's royal family that same night. Total is likely much higher — records are incomplete and exclude international travel."},
+];
+let entries=[...DATA],nextId=500,filter='all',expanded=null;
+function parseDollars(r){if(!r)return null;r=r.trim().replace(/[$,]/g,'').toUpperCase();let m;if((m=r.match(/^([\d.]+)\s*T$/)))return parseFloat(m[1])*1e12;if((m=r.match(/^([\d.]+)\s*B$/)))return parseFloat(m[1])*1e9;if((m=r.match(/^([\d.]+)\s*M$/)))return parseFloat(m[1])*1e6;if((m=r.match(/^([\d.]+)\s*K$/)))return parseFloat(m[1])*1e3;const n=parseFloat(r);return isNaN(n)?null:n;}
+function fD(n){if(n==null)return'—';if(n>=1e12)return'$'+(n/1e12).toFixed(1).replace(/\.0$/,'')+'T';if(n>=1e9)return'$'+(n/1e9).toFixed(1).replace(/\.0$/,'')+'B';if(n>=1e6)return'$'+Math.round(n/1e6)+'M';if(n>=1e3)return'$'+Math.round(n/1e3)+'K';return'$'+Math.round(n).toLocaleString();}
+function fC(n){if(n>=1e9)return(n/1e9).toFixed(1).replace(/\.0$/,'')+'B';if(n>=1e6)return(n/1e6).toFixed(1).replace(/\.0$/,'')+'M';if(n>=1e3)return Math.round(n/1e3).toLocaleString()+'K';return Math.round(n).toLocaleString();}
+function setFilter(f,b){filter=f;document.querySelectorAll('.cb').forEach(x=>x.classList.remove('active'));b.classList.add('active');expanded=null;render();}
+function sFC(f){filter=filter===f?'all':f;document.querySelectorAll('.cb').forEach(b=>{const t=b.getAttribute('onclick');b.classList.toggle('active',t.includes(`'${filter}'`)||(filter==='all'&&t.includes("'all'")));});expanded=null;render();}
+function toggleRow(id){expanded=expanded===id?null:id;render();}
+function removeEntry(id,e){e.stopPropagation();entries=entries.filter(x=>x.id!==id);if(expanded===id)expanded=null;render();}
+function addEntry(){
+  const name=document.getElementById('in').value.trim(),amtR=document.getElementById('ia').value.trim(),cat=document.getElementById('ic').value,src=document.getElementById('is').value.trim(),url=document.getElementById('iu').value.trim(),ph=document.getElementById('ph');
+  if(!name){ph.textContent='Please enter a description.';return;}
+  const amt=parseDollars(amtR);if(!amt){ph.textContent='Try: 2.4B, 800M, 450M';return;}
+  ph.textContent='';entries.push({id:nextId++,name,cat,amt,lo:null,hi:null,src,url,note:''});
+  ['in','ia','is','iu'].forEach(id=>document.getElementById(id).value='');render();
+}
+function render(){
+  const vis=filter==='all'?entries:entries.filter(e=>e.cat===filter);
+  const total=entries.reduce((s,e)=>s+e.amt,0);
+  document.getElementById('grand-total').textContent=fD(total);
+  document.getElementById('grand-sub').textContent=entries.length+' items tracked · click any row to expand sourcing & opportunity cost · estimates used where exact figures unavailable';
+  document.getElementById('sg').innerHTML=Object.keys(CM).map(c=>{const items=entries.filter(e=>e.cat===c),t=items.reduce((s,e)=>s+e.amt,0);return`<div class="sc${filter===c?' af':''}" onclick="sFC('${c}')"><div class="sc-lbl">${CM[c].l}</div><div class="sc-num">${fD(t)}</div><div class="sc-cnt">${items.length} item${items.length!==1?'s':''}</div></div>`;}).join('');
+  const body=document.getElementById('eb');
+  if(!vis.length){body.innerHTML='<div style="padding:1.5rem;text-align:center;color:var(--t3);font-size:13px;">No items in this category.</div>';return;}
+  body.innerHTML=vis.map(e=>{
+    const cm=CM[e.cat]||CM.boom,rng=e.lo&&e.hi?`${fD(e.lo)}–${fD(e.hi)} est.`:(e.lo?`min. ${fD(e.lo)}`:''),isOpen=expanded===e.id;
+    const opp=OPP.map(o=>`<div class="oc"><div class="on">${fC(e.amt/o.u)}</div><div class="od">${o.n}</div></div>`).join('');
+    const sh=e.url?`<a href="${e.url}" target="_blank">${e.src||'source'}</a>`:(e.src||'');
+    const nb=e.isNew?`<span class="nb">new</span>`:'';
+    return`<div><div class="er${isOpen?' open':''}" onclick="toggleRow(${e.id})"><div><div class="en"><span class="pill ${cm.c}">${cm.l}</span>${e.name}${nb}</div>${e.src?`<div class="es">${e.src}</div>`:''}</div><div><div class="ea">${fD(e.amt)}</div>${rng?`<div class="eg">${rng}</div>`:''}</div><div style="text-align:right;padding-top:1px"><button class="db" onclick="removeEntry(${e.id},event)">✕</button></div></div><div class="exp${isOpen?' open':''}">${e.note?`<div class="nt">${e.note}</div>`:''}${sh?`<div class="sl">Source: ${sh}</div>`:''}<div style="font-size:11px;font-weight:500;color:var(--t2);text-transform:uppercase;letter-spacing:.04em;margin:9px 0 5px">What ${fD(e.amt)} could fund instead</div><div class="og">${opp}</div></div></div>`;
+  }).join('');
+  const og=document.getElementById('to');
+  og.innerHTML=!total?'<div style="color:var(--t3);font-size:13px;">Add items to see totals.</div>':OPP.map(o=>`<div class="oc"><div class="on">${fC(total/o.u)}</div><div class="od">${o.n}</div></div>`).join('');
+}
+document.getElementById('ia').addEventListener('input',function(){const v=parseDollars(this.value);document.getElementById('ph').textContent=v?'→ '+fD(v):'';});
+document.getElementById('in').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('ia').focus();});
+document.getElementById('ia').addEventListener('keydown',e=>{if(e.key==='Enter')addEntry();});
+render();
+</script>
+</body>
+</html>
